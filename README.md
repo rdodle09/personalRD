@@ -10,15 +10,7 @@ To get you started you can simply clone the chat repository and install the depe
 
 ### Install Dependencies
 
-We have 2 kinds of dependencies in this project:Tools and Libraries. This libraries help us in building client side web apps and tools helps us manage the application.
-
-####Libraries used in `index.html`:
-
-* We are using `cisco-collab-ui` library which is cisco standard for `Font-Styles, Colors, Pannels e.t.c`.
-* We use `AngularJS v1.x` library as a framework for building complex, data-heavy web apps with JavaScript better.
-* We use `bootsrap` for styling
-
-* We get the tools we depend  upon via `npm`, the [node package manager][npm].
+We get the tools we depend  upon via `npm`, the [node package manager][npm].
 
 We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
@@ -26,6 +18,21 @@ We have preconfigured `npm` to automatically run `bower` so we can simply do:
 npm install
 ```
 
+We have 2 kinds of dependencies in this project:Tools and Libraries. This libraries help us in building client side web apps and tools helps us manage the application.
+
+#### Libraries included in `index.html`:
+
+* We are using `cisco-collab-ui` library which is cisco standard for `Font-Styles, Colors, Pannels e.t.c`.
+* We use [AngularJS v1.x][angularjs] library as a framework for building complex, data-heavy web apps with JavaScript better.
+* We use [Bootstrap][bootstrap] library for making design responsive for multiple screen size and `CSS` for styling.
+* We are using `jQuery`.
+
+#### Angular Services included in `index.html`:
+
+* We are using `angular-route` as it provides routing and deeplinking services and directives for AngularJS apps. 
+ ⋅⋅* For reference: [angular-route][angular-route]
+* We include `angular-sanitize` script, as its inputs are sanitized by parsing the HTML into tokens. All tokens are thn sereialized back to properly escaped html string, i.e no unsafe input can make it into the returned string.
+ ⋅⋅* For reference: [angular-sanitize][angular-sanitize]
 ### Run the Application
 
 We have preconfigured the project with a development web server. The simplest way to start this server is:
@@ -209,4 +216,7 @@ The MIT License, Copyright (c) 2016 Michal Pietrzak
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [heroku]: https://www.heroku.com
-[]
+[bootstrap]: http://getbootstrap.com/
+[angularjs]: http://angularjs.org/
+[angular-route]:https://docs.angularjs.org/api/ngRoute
+[angular-sanitize]: https://docs.angularjs.org/api/ngSanitize
