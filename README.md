@@ -48,7 +48,41 @@ We have 2 kinds of dependencies in this project:Tools and Libraries. This librar
 
 * We included `main.Ctrl.js` which has angular controller model(logic) for view.
 
-## Interacting with Socket.IO
+## AngularJS Controllers used in code:
+
+1. 'MainCtrl'
+
+```javascript
+(function () {
+    // Define app module with controller 'MainCtrl'
+    angular
+        .module('app')
+        .controller('MainCtrl', MainCtrl);
+    //inject the services
+    MainCtrl.$inject = ['$scope', 'localStorage', 'socket', '$timeout', 'uuid'];
+    //pass the parameters to the controller
+    function MainCtrl($scope, localStorage, socket, $timeout, uuid) {
+      /* Controller logic */
+      }
+}());
+```
+
+## AngularJS  Services:
+
+```javascript
+   function MainCtrl($scope, localStorage, socket, $timeout, uuid) {
+  /* Controller logic */
+}
+```
+ 1. Socket
+ 2. localStorage
+ 3. uuid
+ 4. $scope
+ 5. $timeout
+ 6. $sce
+
+
+### Interacting with Socket.IO
 
 Although Socket.IO exposes an `io` variable on the `window`, it's better to encapsulate it in AngularJS's [Dependency Injection system](http://docs.angularjs.org/guide/di). So, we'll start by writing a service to wrap the `socket` object returned by Socket.IO. This is awesome, because it will make it much easier to test our controller later. Open `public/js/services.js` and replace the contents with:
 
@@ -88,6 +122,11 @@ Now, within our controller, we can ask for the `socket` object :
    function MainCtrl($scope, localStorage, socket, $timeout, uuid) {
   /* Controller logic */
 }
+```
+
+
+
+
 
 ### Run the Application
 
