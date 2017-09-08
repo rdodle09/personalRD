@@ -142,66 +142,66 @@ Here is the basic suggested skeleton for your app repo that each of the starter 
 ├── repo
 │   ├── chat
 │   │   ├── view
-│   │   |   ├── index.html
+│   │   │  ├── index.html
 │   │   ├── botAdaptor.js
 │   │   ├── chat.js
 │   ├── compensation
 │   │   ├── api
-│   │   |   ├── api.js
-│   │   |   ├── comInquiry.js
-│   │   |   ├── test.js
-│   │   |   ├── visibility.js
-│   |   ├── json
-│   │   |   ├── ChatMessageResponseJson
-│   │   |   |   ├── chatResponse.json
-│   │   |   |   ├── linksResponse.json
-│   │   |   |   ├── multipleTextResponse.json
-│   │   |   |   ├── singleImageResponse.json
-│   │   |   |   ├── singleTextResponse.json
-│   │   |   |   ├── typeTableResponse.json
-│   │   |   ├── conversation.json
-│   │   |   ├── messageRequest.json
-│   │   |   ├── messageResponse.json
-│   |   ├── test
+│   │   │  ├── api.js
+│   │   │   ├── comInquiry.js
+│   │   │   ├── test.js
+│   │   │   ├── visibility.js
+│   │   ├── json
+│   │   │   ├── ChatMessageResponseJson
+│   │   │   │   ├── chatResponse.json
+│   │   │   │   ├── linksResponse.json
+│   │   │   │   ├── multipleTextResponse.json
+│   │   │   │   ├── singleImageResponse.json
+│   │   │   │   ├── singleTextResponse.json
+│   │   │   │   ├── typeTableResponse.json
+│   │   │   ├── conversation.json
+│   │   │   ├── messageRequest.json
+│   │   │   ├── messageResponse.json
+│   │   ├── test
 │   │   |   ├── adaptor.js
-│   |   ├── app.js
-│   |   ├── bot.js
-│   |   ├── compRoutes.js
-│   |   ├── context.js
-│   |   ├── customError.js
-│   |   ├── request.js
-│   |   ├── test.js
-│   |   ├── watsonAdaptor.js
+│   │   ├── app.js
+│   │   ├── bot.js
+│   │   ├── compRoutes.js
+│   │   ├── context.js
+│   │   ├── customError.js
+│   │   ├── request.js
+│   │   ├── test.js
+│   │   ├── watsonAdaptor.js
 │   ├── node_modules
 │   ├── public
 │   │   ├── collabui
-│   │   |   ├── css
-│   │   |   ├── fonts
-│   │   |   ├── images
-│   │   |   ├── js
+│   │   │   ├── css
+│   │   │   ├── fonts
+│   │   │   ├── images
+│   │   │   ├── js
 │   │   ├── components
-│   │   |   ├── localStorage.js
-│   │   |   ├── socket.Srvc.js
-│   │   |   ├── uuid.js
+│   │   │   ├── localStorage.js
+│   │   │   ├── socket.Srvc.js
+│   │   │   ├── uuid.js
 │   │   ├── css
-│   │   |   ├── style2.css
-│   │   |   ├── styles.css
+│   │   │   ├── style2.css
+│   │   │   ├── styles.css
 │   │   ├── images
 │   │   ├── included
-│   │   |   ├── angular
-│   │   |   ├── angular-cookies
-│   │   |   ├── angular-route
-│   │   |   ├── angular-sanitize
-│   │   |   ├── bootstrap
-│   │   |   ├── font-awesome
-│   │   |   ├── jQuery
-│   │   |   ├── ng-loadash
-│   │   |   ├── ngStorage
-│   │   ├── main
-│   │   |   ├── main.Ctrl.js
-│   │   |   ├── main.html
-│   │   |   ├── test.js
-│   │   ├── videos
+│   │   │   ├── angular
+│   │   │   ├── angular-cookies
+│   │   │   ├── angular-route
+│   │   │   ├── angular-sanitize
+│   │   │   ├── bootstrap
+│   │   │   ├── font-awesome
+│   │   │   ├── jQuery
+│   │   │   ├── ng-loadash
+│   │   │   ├── ngStorage
+│   │   │── main
+│   │   │   ├── main.Ctrl.js
+│   │   │   ├── main.html
+│   │   │   ├── test.js
+│   │   │── videos
 │   │   ├── app.js
 │   ├── index.html
 │   ├── .gitignore
