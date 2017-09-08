@@ -4,11 +4,11 @@ It is a chatbot application with [AngularJS](http://angularjs.org/) `version1.x`
 
 This repo contains a AngularJS MVC application and NodeJS with ExpressJS Framework for initating the server.
 
-## Getting Started
+# Getting Started
 
 To get you started you can simply clone the chat repository and install the dependencies.
 
-### Install Dependencies
+## Install Dependencies
 
 We get the tools we depend  upon via `npm`, the [node package manager][npm].
 
@@ -32,9 +32,62 @@ We have 2 kinds of dependencies in this project:Tools and Libraries. This librar
 
 #### Angular Services included in `index.html`:
 
-* We are using `angular-route` as it provides routing and deeplinking services and directives for AngularJS apps. For reference: [angular-route][angular-route]
+* We are using `angular-route` as it provides routing and deeplinking services and directives for AngularJS apps. For reference: [angular-route][angular-route].
 
-* We include `angular-sanitize` script, as its inputs are sanitized by parsing the HTML into tokens. All tokens are thn sereialized back to properly escaped html string, i.e no unsafe input can make it into the returned string. For reference: [angular-sanitize][angular-sanitize]
+* We include `angular-sanitize` script, as its inputs are sanitized by parsing the HTML into tokens. All tokens are thn sereialized back to properly escaped html string, i.e no unsafe input can make it into the returned string. For reference: [angular-sanitize][angular-sanitize].
+
+* we include `ngStorage` service for accessing webstorage in angular way.It contains two services: `$localStorage` and `$sessionStorage`. For reference: [ngStorage][ngStorage]
+
+* we include `socket.io`which enables real-time bidirectional event-based communication. For reference: [Socket.io][Socket.io]
+
+* we are using `socket.srvc.js` <-- Custom Service for interacting witk Socket.IO
+
+* we are using  `uuid.js` <-- Custom Service for creating a uuid.
+
+* we included `localStorage.js`  <-- Custom Service for accessing userDetails from browser localStorage to generate `content`.
+
+* We included `main.Ctrl.js` which has angular controller model(logic) for view.
+
+## Interacting with Socket.IO
+
+Although Socket.IO exposes an `io` variable on the `window`, it's better to encapsulate it in AngularJS's [Dependency Injection system](http://docs.angularjs.org/guide/di). So, we'll start by writing a service to wrap the `socket` object returned by Socket.IO. This is awesome, because it will make it much easier to test our controller later. Open `public/js/services.js` and replace the contents with:
+
+```javascript
+app.factory('socket', function ($rootScope) {
+  var socket = io.connect();
+  return {
+    on: function (eventName, callback) {
+      socket.on(eventName, function () {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          callback.apply(socket, args);
+        });
+      });
+    },
+    emit: function (eventName, data, callback) {
+      socket.emit(eventName, data, function () {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          if (callback) {
+            callback.apply(socket, args);
+          }
+        });
+      })
+    }
+  };
+});
+```
+
+Notice that at we wrap each socket callback in `$scope.$apply`. This tells AngularJS that it needs to check the state of the application and update the templates if there was a change after running the callback passed to it. Internally, `$http` works in the same way; after some XHR returns, it calls `$scope.$apply`, so that AngularJS can update its views accordingly.
+
+Note that this service doesn't wrap the entire Socket.IO API (that's left as an exercise for the reader ;P ). However, it covers the methods used in this tutorial, and should point you in the right direction if you want to expand on it. I may revisit writing a complete wrapper, but that's beyond the scope of this article.
+
+Now, within our controller, we can ask for the `socket` object :
+
+```javascript
+   function MainCtrl($scope, localStorage, socket, $timeout, uuid) {
+  /* Controller logic */
+}
 
 ### Run the Application
 
@@ -223,3 +276,5 @@ The MIT License, Copyright (c) 2016 Michal Pietrzak
 [angularjs]: http://angularjs.org/
 [angular-route]:https://docs.angularjs.org/api/ngRoute
 [angular-sanitize]: https://docs.angularjs.org/api/ngSanitize
+[ngStorage]:https://www.npmjs.com/package/ng-storage
+[Socket.io]:https://github.com/socketio/socket.io/blob/master/Readme.md
