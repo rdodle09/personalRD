@@ -1,68 +1,24 @@
-# angularjs-template - advanced template for AngularJS apps
+# ChatBot with AngularJS apps
 
-[![AngularVersion Status](https://github.com/angular/angular.js)](https://travis-ci.org/pamigomp/angularjs-template)
-[![Coverage Status](https://coveralls.io/repos/github/pamigomp/angularjs-template/badge.svg?branch=master)](https://coveralls.io/github/pamigomp/angularjs-template?branch=master)
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Dependency Status](https://gemnasium.com/badges/github.com/pamigomp/angularjs-template.svg)](https://gemnasium.com/github.com/pamigomp/angularjs-template)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+It is a chatbot application with [AngularJS](http://angularjs.org/) `version1.x` framework.
 
-This project extends the [seed project](http://github.com/angular/angular-seed) for angular apps provided by AngularJS team. It also bases on an awesome [John Papa's style guide](https://github.com/johnpapa/angular-styleguide). It is an application template for a typical [AngularJS](http://angularjs.org/) web app. You can use it to quickly bootstrap your angular web app projects and dev environment for these projects.
-
-The template contains a sample AngularJS application and is preconfigured to install the Angular framework and a bunch of development and testing tools for instant web development gratification.
-
-## Online Demo
-
-You can go to following website, to see app preview:
-https://angularjstemplate.herokuapp.com
+This repo contains a AngularJS MVC application and NodeJS with ExpressJS Framework for initating the server.
 
 ## Getting Started
 
-To get you started you can simply clone the angularjs-template repository and install the dependencies.
-
-### Prerequisites
-
-You need git to clone the angularjs-template repository. You can get git from [http://git-scm.com/](http://git-scm.com/).
-
-We also use a number of node.js tools to initialize and test angularjs-template. You must have node.js and its package manager (npm) installed. You can get them from [http://nodejs.org/](http://nodejs.org/).
-
-### Clone angularjs-template 
-
-Clone the angularjs-template repository using [git][git]:
-
-```bash
-git clone https://github.com/pamigomp/angularjs-template.git
-cd angularjs-template
-```
-
-If you just want to start a new project without the angularjs-template commit history then you can do:
-
-```bash
-git clone --depth=1 https://github.com/pamigomp/angularjs-template.git <your-project-name>
-```
-
-The `depth=1` tells git to only pull down one commit worth of historical data.
-
-### Install with npm
-
-You can also install angularjs-template with [npm][npm]:
-
-```bash
-npm install angularjs-template
-cd node_modules/angularjs-template
-```
+To get you started you can simply clone the chat repository and install the dependencies.
 
 ### Install Dependencies
 
-Firstly, make sure you have bower, grunt-cli and karma-cli installed globally. To do this run:
+We have 2 kinds of dependencies in this project:Tools and Libraries. This libraries help us in building client side web apps and tools helps us manage the application.
 
-```bash
-npm install -g bower grunt-cli karma-cli
-```
+####Libraries used in `index.html`:
 
-We have two kinds of dependencies in this project: tools and angular framework code. The tools help us manage and test the application.
+* We are using `cisco-collab-ui` library which is cisco standard for `Font-Styles, Colors, Pannels e.t.c`.
+* We use `AngularJS v1.x` library as a framework for building complex, data-heavy web apps with JavaScript better.
+* We use `bootsrap` for styling
 
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, the [client-side code package manager][bower].
+* We get the tools we depend  upon via `npm`, the [node package manager][npm].
 
 We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
@@ -70,67 +26,20 @@ We have preconfigured `npm` to automatically run `bower` so we can simply do:
 npm install
 ```
 
-Behind the scenes this will also call `bower install`. You should find that you have two new folders in your project.
-
-* `node_modules` - contains the npm packages for the tools we need
-* `app/bower_components` - contains the angular framework files
-
-*Note that the `bower_components` folder would normally be installed in the root folder but angularjs-template changes this location through the `.bowerrc` file. Putting it in the app folder makes it easier to serve the files by a webserver.*
-
 ### Run the Application
 
-We have preconfigured the project with a simple development web server. The simplest way to start this server is:
+We have preconfigured the project with a development web server. The simplest way to start this server is:
 
 ```bash
-npm start
+node server.js
 ```
 
-Now browse to the app at `http://localhost:8000`.
+Now browse to the app at `http://localhost:8080`.
 
 ## Directory Layout
 
 ```
-app/                                --> all of the source files for the application
-  assets/                               --> other application files
-    css/                                  --> custom styles
-    data/                                 --> custom data
-    fonts/                                --> custom fonts
-    images/                               --> custom images
-    js/                                   --> custom JavaScript files
-    libs/                                 --> custom libraries
-  bower_components/                     --> the angular framework files
-  common/                               --> common application files
-    constants/                              --> custom angular constants    
-    directives/                             --> custom angular directives    
-    filters/                                --> custom angular filters
-  core/                                 --> main application files
-    app.js                                  --> main application module
-    app.routes.js                           --> main application routes
-  index.html                            --> app layout file (the main html template file of the app)
-build/                              --> minified JavaScript files
-node_modules/                       --> the npm packages for the tools we need
-coverage/                           --> coverage reports
-dist/                               --> concatenated JavaScript files
-protractor-test-results/            --> e2e tests results
-tests/                              --> tests scenarios
-  e2e/                                  --> end-to-end tests
-  unit/                                 --> unit tests
-unit-test-results/                  --> unit tests results
-.bowerrc                            --> bower options file
-.gitignore                          --> git ignore file
-.jscsrc                             --> JSCS options file
-.jshintrc                           --> JSHint options file
-.travis.yml                         --> Travis CI config file
-Gruntfile.js                        --> Grunt config file
-Procfile                            --> define command which starts app
-app.json                            --> web application details file
-bower.json                          --> runtime dependencies of the project
-karma.conf.js                       --> Karma config file (for unit tests)
-package.json                        --> development dependencies of the project
-protractor-conf.js                  --> Protractor config file (for e2e tests)
-server.js                           --> server config file
 ```
-
 ## Testing
 
 There are two kinds of tests in the angularjs-template application: Unit tests and End to End tests.
@@ -300,3 +209,4 @@ The MIT License, Copyright (c) 2016 Michal Pietrzak
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [heroku]: https://www.heroku.com
+[]
