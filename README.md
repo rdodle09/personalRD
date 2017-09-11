@@ -219,11 +219,55 @@ Here is the basic suggested skeleton for your app repo that each of the starter 
 └── readme.md
 ```
 
+<!--
+You need to add : 
 
-## JSON Message request from 'MainCtrl' i.e user Request Message 
+1.)  How to add new capabilities in front end
+2.)  what json you receive from the backend
+     provide an example of the json input with one text and 2 videos
+let me know when it is over
+-->
 
+## JSON Message received from backend
 
-## JSON Message received from "botAdaptor" i.e watson Response Message
+We receive different JSON response based on the type of the response for instance we have diffrent types of response like:
+
+1.) Text
+2.) Image
+3.) Video
+4.) Tile
+
+### Example 1: 
+```json
+{
+  "data": [
+    {
+      "title": "",
+      "type": "text",
+      "value": [
+        {
+         "raw":"Here  is your response!"
+        }
+      ]
+    },
+    {
+      "title": "",
+      "type": "image",
+      "value": [
+        {
+          "title": "Step1",
+          "src": "https://s-media-cache-ak0.pinimg.com/originals/74/44/57/7444578d0a0766b54547f1ac28dfd83a.png"
+        },
+        {
+          "title": "Step2",
+          "src": "http://wallpapercave.com/wp/nUL012t.jpg"
+        }
+      ]
+    }
+  ]
+}
+
+```
 
 
 
