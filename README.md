@@ -163,7 +163,7 @@ Here is the basic suggested skeleton for your app repo that each of the starter 
 │   │   │   ├── messageRequest.json
 │   │   │   ├── messageResponse.json
 │   │   ├── test
-│   │   |   ├── adaptor.js
+│   │   │   ├── adaptor.js
 │   │   ├── app.js
 │   │   ├── bot.js
 │   │   ├── compRoutes.js
