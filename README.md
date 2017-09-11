@@ -223,11 +223,11 @@ Here is the basic suggested skeleton for your app repo that each of the starter 
 
 We receive different JSON response based on the type of the response for instance we have diffrent types of response like:
 
-1.) Text
-2.) Image
-3.) Video
-4.) Tile
-5.) Table
+1. Text
+2. Image
+3. Video
+4. Tile
+5. Table
 
 ### Example 1: JSON response for type text and images as one single response
 
