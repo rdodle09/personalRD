@@ -219,15 +219,6 @@ Here is the basic suggested skeleton for your app repo that each of the starter 
 └── readme.md
 ```
 
-<!--
-You need to add : 
-
-1.)  How to add new capabilities in front end
-2.)  what json you receive from the backend
-     provide an example of the json input with one text and 2 videos
-let me know when it is over
--->
-
 ## JSON Message received from backend
 
 We receive different JSON response based on the type of the response for instance we have diffrent types of response like:
@@ -236,8 +227,10 @@ We receive different JSON response based on the type of the response for instanc
 2.) Image
 3.) Video
 4.) Tile
+5.) Table
 
-### Example 1: 
+### Example 1: JSON response for type text and images as one single response
+
 ```json
 {
   "data": [
@@ -268,9 +261,58 @@ We receive different JSON response based on the type of the response for instanc
 }
 
 ```
+### Example 2: JSON response for multiple type text messages as one single response
 
+```json
+{
+  "data": [
+     {
+      "title": "",
+      "type": "text",
+      "value": [
+       { 
+        "raw": "Hello how are you doing today?"
+       },
+       { 
+        "raw": "Here is your response"
+       }
+      ]
+    }
+  ]
+}
+```
 
+## How to add new capabilities in front end:
 
+1. Custom Service or a Custom Factory
+
+* If it is a new service or factory should be placed at the below mentioned  components directory level:
+
+```bash
+├── repo
+│   ├── public
+│   │   ├── components
+│   │   │   ├── localStorage.js
+│   │   │   ├── socket.Srvc.js
+│   │   │   ├── uuid.js
+```
+* Inject as a dependency to the controller "MainCtrl".
+
+2. If it is a new type of message reponse must create a new HTML template with ng-if directive for the new type and itterate over the message to print with data binding.
+
+/* Note: HTML templates should be placed in seperate files which is currently not done .*/
+
+3. New CSS style classes should be added to the styles2.css file and styles.css has the css classes for the main structure of the chatBot body, header, container and scrollbar:
+
+```bash
+├── repo
+│   ├── public
+│   │   ├── css
+│   │   │   ├── style2.css
+│   │   │   ├── styles.css
+```
+
+4. If any other new data to be sent or receive from the backend to controller or from controller must use socket.io library function i.e socket.emit to send the data on listening for the event in socket.on. For further reference please navigate to the top or [clickhere][Socket.io]
 
 [npm]: https://www.npmjs.org
 [node]: http://nodejs.org
